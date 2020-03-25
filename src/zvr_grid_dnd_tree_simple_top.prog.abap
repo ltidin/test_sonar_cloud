@@ -1,0 +1,44 @@
+*----------------------------------------------------------------------*
+*   INCLUDE BCALV_DND_TOP2                                             *
+*----------------------------------------------------------------------*
+* definition of tables, types, data and constants
+* tables
+TABLES: SCARR, SFLIGHT, SPFLI, SAPLANE.
+TYPE-POOLS: SLIS.
+* internal tables
+DATA: GT_SCARR        TYPE TABLE OF SCARR WITH HEADER LINE,
+      GT_SPFLI        TYPE TABLE OF SPFLI WITH HEADER LINE,
+      GT_SFLIGHT      TYPE TABLE OF SFLIGHT WITH HEADER LINE,
+      GT_SAPLANE      TYPE TABLE OF SAPLANE WITH HEADER LINE,
+      GT_HEADER       TYPE TABLE OF SLIS_LISTHEADER WITH HEADER LINE,
+      GT_FIELDCAT_LVC TYPE LVC_T_FCAT WITH HEADER LINE,
+      GT_SORT         TYPE LVC_T_SORT, "Sortiertabelle
+      GT_SORT_GRID    TYPE LVC_T_SORT WITH HEADER LINE,
+      GT_ROW_TABLE     TYPE LVC_T_ROW WITH HEADER LINE.  " selected rows
+
+* global fields
+DATA: CONTROLS_CREATED,
+      DRAGDROP_TREE TYPE REF TO CL_DRAGDROP,
+      DRAGDROP_ALV TYPE REF TO CL_DRAGDROP,
+      FLG_NEW,
+      GRID         TYPE REF TO CL_GUI_ALV_GRID,
+      GS_LAYOUT_ALV  TYPE LVC_S_LAYO,
+      GS_LAYOUT_TREE TYPE LVC_S_LAYO,
+      GS_TOOLBAR  TYPE STB_BUTTON,
+      G_CUSTOM_CONTAINER TYPE REF TO CL_GUI_CUSTOM_CONTAINER,
+      G_CONTAINER_OBJECT TYPE REF TO CL_GUI_DOCKING_CONTAINER,
+      G_DROPEFFECT TYPE I,
+      G_HANDLE_TREE TYPE I,
+      G_HANDLE_ALV  TYPE I,
+      G_REPID      LIKE SY-REPID,
+      OK_CODE      LIKE SY-UCOMM,
+      SAVE_OK_CODE LIKE SY-UCOMM,
+      SELECTED     VALUE 'X',
+      TREE1  TYPE REF TO cl_gui_alv_tree_simple.
+* constants
+CONSTANTS: FCODE_BACK   LIKE SY-UCOMM VALUE 'BACK',
+           FCODE_DISP   LIKE SY-UCOMM VALUE 'DISP',
+           FCODE_END    LIKE SY-UCOMM VALUE 'END',
+           FCODE_ENTR   LIKE SY-UCOMM VALUE 'ENTR',
+           FCODE_ESC    LIKE SY-UCOMM VALUE 'ESC',
+           FCODE_PLANE  LIKE SY-UCOMM VALUE 'FLIGHT'.
